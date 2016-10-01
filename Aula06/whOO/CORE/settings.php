@@ -1,0 +1,13 @@
+<?php
+
+//
+
+	$URL_PATH="/4500-PHP/Aula06/whOO/";
+
+	//VARIAVEIS DE CONEXAO DO BD
+	$DB_HOSTNAME="127.0.0.1";
+	$DB_USUARIO='Aula04';
+	$DB_SENHA='4linux';
+	$DB_DATABASE="Aula04";
+
+

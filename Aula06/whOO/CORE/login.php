@@ -1,4 +1,6 @@
 <?php
+
+require "settings.php";
 // usuario hard coded
 $user = array(
 		"email" => 'admin@gmail.com',
@@ -15,11 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	foreach ($requireds as $e) {
 		// valida se o campo foi definido no html
 		if (! array_key_exists($e, $_POST)){
-			header('Location: pagina5.php?error=missing_field');
+			header('Location:'.$URL_PATH.'login.php?error=missing_field');
 		}
 		// valida se o campo nao possui um valor vazio
 		if (empty($_POST[$e])){
-			header('Location: pagina5.php?error=missing_field');
+			header('Location:'.$URL_PATH.'login.php?error=missing_field');
 		}
 	}
 	
@@ -36,14 +38,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$_SESSION['email'] = $login;
 		$_SESSION['senha'] = $senha;
 		$_SESSION['nome'] = $user['nome'];
-		header('location: index.php');
+		header('location: '.$URL_PATH.'index.php');
 	}
 	else
 		{	
-			header('Location: pagina5.php?error=invalid_login');
+			header('Location:'.$URL_PATH.'login.php?error=invalid_login');
 		}
 }
 else {
 	// so far we go
-	header('Location: pagina5.php');
+	header('Location:'.$URL_PATH.'login.php');
 }

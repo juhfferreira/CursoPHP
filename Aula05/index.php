@@ -1,17 +1,30 @@
-<?php if(!isset($_SESSION)) session_start(); ?>
-<html>
-	<head>
-		<?php require "bootstrap.php"; ?>
-		<!-- CSS -->
-		<link rel="stylesheet" type="text/css" href="static/style.css">
-		<!-- JavaScript -->
-		<script src="static/scripts.js"></script>
-		
-		<title><?= $_SESSION['nome'] ?> | MEU SITE</title>
-	</head>
-	<body>
-		Blabla
-		<a href="logout.php">Sair</a>
-	</body>
+<?php
+ 	if (! isset($_SESSION)) session_start(); 
+ 	if (! isset($_SESSION['email'])) {
+ 		header('Location: pagina5.php');
+ 	}
+ ?>
 
+<html>
+<head>
+
+	 <?php require "static/bootstrap.php";?>
+		<title>
+			Seja bem vindo
+		</title>
+<body>
+	<center>
+
+		<h1>MEU SITE</h1>
+
+		<p>Logado: <?= $_SESSION['email'] ?></p>
+		<p>Senha: <?= $_SESSION['senha'] ?></p>
+		<a href="logout.php">Sair</a>
+
+	</center>
+
+
+</body>
+
+</head>
 </html>
