@@ -1,0 +1,13 @@
+/* navbar */
+.navbar-custom {
+    background-color:#353535;
+    color:#D84059;
+    border-radius:0;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#fff;
+}
+
+
+

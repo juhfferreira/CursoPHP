@@ -15,7 +15,9 @@
 <head>
 	
 	<? require "static/bootstrap.php"; ?>
-	 <title>Seja bem vindo(a) <?= $_SESSION['NOME'] ?> </title>
+	<link rel="stylesheet" type="text/css" href="static/index.css">
+	<link href="static/cadastro.css" type="text/css" rel="stylesheet" />
+	 <title>Seja bem vindo(a) <?= $_SESSION['nome'] ?> </title>
 <body>
 	<!-- ==========================================TABELA DE USUARIOS========================================== -->
 
@@ -39,7 +41,7 @@
 			    			<td><?=$row['ID'] ?></td>
 			    			<td><?=$row['NOME'] ?></td>
 			    			<td><?=$row['EMAIL'] ?></td>
-			    			<td><a href="<? $URL_PATH ?>CORE/editar.php?id=<?=$row['ID'] ?>" class="btn btn-info btn-sm">Editar</a>
+			    			<td><a href="<? $URL_PATH ?>edit_user.php?id=<?=$row['ID'] ?>" class="btn btn-info btn-sm">Detalhes</a>
 			    				<a href="<? $URL_PATH ?>CORE/delete.php?id=<?=$row['ID'] ?>" class="btn btn-danger btn-sm">Excluir</a>
 			    			</td>
 			    		</tr>	

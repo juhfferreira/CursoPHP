@@ -4,7 +4,7 @@
     <?php require "CORE/settings.php" ?>
 
     <!-- MEU CSS do bootsnipp-->
-     <link href="<?= $URL_PATH ?>static/pagina5.css" type="text/css" rel="stylesheet" />
+     <link href="<?= $URL_PATH ?>static/cadastro.css" type="text/css" rel="stylesheet" />
 
      <!-- meu js do bootsnip -->
      <script src="<?= $URL_PATH ?>static/pagina5.js"></script>

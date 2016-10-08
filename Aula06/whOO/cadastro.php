@@ -19,9 +19,7 @@
 
 
 		<!-- ==========================================CADASTRO========================================== -->
-		<br />
-		<br />
-		<br />
+		
 		<div class="container">
         <div class="card card-container">
         	<center><h1><b>whOO</b></h1><h3>Cadastro de Usuarios</h3></center><br />

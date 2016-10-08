@@ -1,17 +1,9 @@
 <?php
-
+require_once "db_mysql.php"; 
 require "settings.php";
-// usuario hard coded
-$user = array(
-		"email" => 'admin@gmail.com',
-		"senha" => '123456',
-		"nome"  => 'administrador',
-	);
 // campos obrigatoris de login
 $requireds = array('email','senha');
-// UFAA: SO PHP AQUI ;D
-// TODO: LOGIN
-//validar a chamada a URL (via POST)
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	// validar os campos do $_POST
 	foreach ($requireds as $e) {
@@ -25,20 +17,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 		}
 	}
 	
-	// atribuicao das variveis do logi
-	$login = $_POST['email'];
+	// atribuicao das variveis do login
+	$email = $_POST['email'];
 	$senha = $_POST['senha'];
-	
+	$sec_senha=sha1('itsatrap+'.$senha);
+
+	$sql="SELECT * FROM usuarios 
+		  WHERE EMAIL='%s'
+		  AND SENHA='%s'";
+
+ 	$query=sprintf($sql, $email, $sec_senha);
+ 	$mysqli_query= mysqli_query($conn, $query);
+ 	$row=mysqli_fetch_assoc($mysqli_query); 
+
 	// comparar a senha do usuario
 	
-	if ($login == $user['email'] && $senha == $user['senha']){
+	if ($row){
 		// @session_start
 		if(! isset($_SESSION)) session_start();
 		// definir os dados persistindo entre as paginas
-		$_SESSION['email'] = $login;
-		$_SESSION['senha'] = $senha;
-		$_SESSION['nome'] = $user['nome'];
-		header('location: '.$URL_PATH.'index.php');
+		$_SESSION['email'] = $row['EMAIL'];
+		$_SESSION['nome'] = $row['NOME'];
+		$_SESSION['id'] = $row['ID'];
+		header('Location: '.$URL_PATH.'index.php');
 	}
 	else
 		{	
